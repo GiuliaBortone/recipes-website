@@ -1,0 +1,102 @@
+* {
+    font-family: Avenir;
+}
+
+.hide {
+    display: none !important;
+}
+
+body {
+    background-color: #f7f4dd;
+    margin: 0;
+    font-size: 17px;
+}
+
+header {
+    display: flex;
+    vertical-align: middle;
+    justify-content: start;
+    align-items: center;
+    background: rgba(247, 244, 221, 0.9);
+    color: #f7f4dd;
+    padding: 0 30px;
+}
+
+nav {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    margin: 5px 0;
+}
+
+header nav img {
+    height: 100%;
+    padding: 5px 0;
+}
+
+nav .menu {
+    flex: 1;
+}
+
+nav .menu ul {
+    list-style: none;
+    text-align: end;
+}
+
+nav .menu ul li {
+    display: inline-block;
+    padding: 20px;
+}
+
+nav .menu ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: #014700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+section {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.parent-container {
+    width: 90%;
+    background: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.child-container {
+    display: flex;
+    background: white;
+    box-shadow: 10px 10px rgba(1, 71, 0, 0.5);
+    border-radius: 40px;
+    padding: 30px;
+    margin: 0;
+    flex-direction: column;
+    align-self: stretch;
+    width: 250px;
+}
+
+.recipes .child-container div {
+    text-align: start;
+}
+
+.recipes .child-container p {
+    font-size: 20px;
+    margin: 10px 0;
+    overflow-wrap: break-word;
+}
+
