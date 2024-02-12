@@ -31,26 +31,32 @@ nav {
     margin: 5px 0;
 }
 
+@media (max-width: 1500px) {
+    .filters {
+        display: none !important;
+    }
+}
+
 header nav img {
-    height: 100%;
+    height: 95%;
     padding: 5px 0;
 }
 
-nav .menu {
+nav .filters {
     flex: 1;
 }
 
-nav .menu ul {
+nav .filters ul {
     list-style: none;
     text-align: end;
 }
 
-nav .menu ul li {
+nav .filters ul li {
     display: inline-block;
     padding: 20px;
 }
 
-nav .menu ul li a {
+nav .filters ul li a {
     text-decoration: none;
     font-weight: 500;
     font-size: 18px;
@@ -72,7 +78,7 @@ section {
     background: transparent;
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 35px;
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -81,22 +87,56 @@ section {
 .child-container {
     display: flex;
     background: white;
-    box-shadow: 10px 10px rgba(1, 71, 0, 0.5);
-    border-radius: 40px;
-    padding: 30px;
+    box-shadow: 8px 8px rgba(1, 71, 0, 0.5);
+    border-radius: 15px;
+    padding: 20px 15px 10px 15px;
     margin: 0;
     flex-direction: column;
     align-self: stretch;
-    width: 250px;
+    width: 400px;
+    height: 400px;
 }
 
-.recipes .child-container div {
-    text-align: start;
+@media (min-width: 980px) {
+    .child-container {
+        max-width: 500px;
+    }
+}
+
+.recipes .child-container img {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .recipes .child-container p {
     font-size: 20px;
-    margin: 10px 0;
+    font-weight: 500;
+    margin: 10px 0 0 0;
+    padding: 5px;
     overflow-wrap: break-word;
 }
 
+.recipes .child-container .tags ul {
+    list-style: none;
+    text-align: end;
+    display: inline-flex;
+    margin: 0;
+    margin-block: 0;
+    padding-inline: 0;
+    flex-wrap: wrap;
+}
+
+.recipes .child-container .tags ul li {
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: rgba(1, 71, 0, 0.1);
+    border-radius: 10px;
+}
+
+.recipes .child-container .tags ul li p {
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+}
