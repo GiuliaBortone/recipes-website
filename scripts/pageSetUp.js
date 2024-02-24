@@ -4,7 +4,7 @@ import {appendRecipesContainerTo} from "./createRecipeContainers.js";
 const tags = ["All recipes", "Vegetarian", "Vegan",
     "Meat & Fish", "Bread",
     "Everything sweet", "Breakfast",
-    "Snacks", "Sides", "Drinks"]
+    "Snacks", "Sides", "Sauces", "Drinks"]
 
 window.onload = () => {
     createFilters()
