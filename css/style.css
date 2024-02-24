@@ -12,61 +12,75 @@ body {
     font-size: 17px;
 }
 
-header {
-    display: flex;
-    vertical-align: middle;
-    justify-content: start;
-    align-items: center;
-    background: rgba(247, 244, 221, 0.9);
-    color: #f7f4dd;
-    padding: 0 30px;
+body::-webkit-scrollbar {
+    display: none;
 }
 
-nav {
-    height: 60px;
+header {
+    height: 100px;
     width: 100%;
     display: flex;
-    vertical-align: middle;
     align-items: center;
-    margin: 5px 0;
+    margin: 30px 0;
 }
 
-@media (max-width: 1500px) {
-    .filters {
-        display: none !important;
-    }
+header img {
+    height: 75%;
+    margin-left: 40px;
 }
 
-header nav img {
-    height: 95%;
-    padding: 5px 0;
+header .site-name {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #014700;
+    font-size: 50px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 10px;
 }
 
-nav .filters {
+/* filters section */
+.filters {
     flex: 1;
+    flex-wrap: wrap;
+    padding: 0 150px;
 }
 
-nav .filters ul {
+.filters ul {
     list-style: none;
-    text-align: end;
+    text-align: center;
 }
 
-nav .filters ul li {
+.filters ul li {
     display: inline-block;
     padding: 20px;
 }
 
-nav .filters ul li a {
+.filters ul li button {
     text-decoration: none;
     font-weight: 500;
     font-size: 18px;
     color: #014700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-section {
-    padding: 50px;
+.filters ul li button:hover {
+    text-decoration: underline;
+    text-decoration-color: #014700;
+    text-decoration-thickness: 3px;
+    text-underline-position: under;
+}
+
+/* recipes section */
+.recipes {
+    padding: 25px 50px 100px 50px;
     display: flex;
     justify-content: center;
     align-items: center;

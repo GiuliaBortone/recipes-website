@@ -4,97 +4,22 @@
     <meta charset="UTF-8">
     <title>My recipes - HomePage</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/materials/raccoon_kitchen_logo_icon.svg">
 </head>
 <body>
 <header>
-    <nav>
-        <img src="/materials/raccoon_kitchen_logo.svg">
-        <div class="filters">
-            <ul>
-                <li><a href="#">Vegetarian</a></li>
-                <li><a href="#">Vegan</a></li>
-                <li><a href="#">Meat & fish</a></li>
-                <li><a href="#">Bread</a></li>
-                <li><a href="#">Everything sweet</a></li>
-                <li><a href="#">Breakfast</a></li>
-                <li><a href="#">Snacks</a></li>
-                <li><a href="#">Sides</a></li>
-                <li><a href="#">Drinks</a></li>
-            </ul>
-        </div>
-    </nav>
+    <img src="/materials/raccoon_kitchen_logo.svg" alt="logo">
+    <div class="site-name">
+        <p>The raccoon kitchen</p>
+    </div>
+    <img src="/materials/raccoon_kitchen_logo_transparent.svg" alt="logo">
 </header>
 
-<section class="recipes">
-    <div class="parent-container">
-        <div class="child-container">
-            <img src="/materials/ume-onigiri.jpeg">
-            <div>
-                <p>Ume Onigiri</p>
-            </div>
-            <div class="tags">
-                <ul>
-                    <li><p>Vegetarian</p></li>
-                    <li><p>Vegan</p></li>
-                    <li><p>Snacks</p></li>
-                </ul>
-            </div>
-        </div>
-        <div class="child-container">
-            <img src="/materials/sourdough-bread.jpeg">
-            <div>
-                <p>Sourdough bread</p>
-            </div>
-            <div class="tags">
-                <ul>
-                    <li><p>Bread</p></li>
-                    <li><p>Vegan</p></li>
-                    <li><p>Vegetarian</p></li>
-                </ul>
-            </div>
-        </div>
-        <div class="child-container">
-            <img src="/materials/kimchi.webp">
-            <div>
-                <p>Vegan kimchi</p>
-            </div>
-            <div class="tags">
-                <ul>
-                    <li><p>Vegan</p></li>
-                    <li><p>Vegetarian</p></li>
-                    <li><p>Snacks</p></li>
-                    <li><p>Sides</p></li>
-                </ul>
-            </div>
-        </div>
-        <div class="child-container">
-            <img src="/materials/pizza.webp">
-            <div>
-                <p>Pizza margherita</p>
-            </div>
-            <div class="tags">
-                <ul>
-                    <li><p>Vegetarian</p></li>
-                    <li><p>Bread</p></li>
-                </ul>
-            </div>
-        </div>
-        <div class="child-container">
-            <img src="/materials/kombucha.jpeg">
-            <div>
-                <p>Kombucha</p>
-            </div>
-            <div class="tags">
-                <ul>
-                    <li><p>Drinks</p></li>
-                    <li><p>Everything sweet</p></li>
-                    <li><p>Vegetarian</p></li>
-                    <li><p>Vegan</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+<section class="filters"></section>
+<section class="recipes"></section>
 
+<script type="module" src="/scripts/filterTags.js"></script>
+<script type="module" src="/scripts/pageSetUp.js"></script>
+<script type="module" src="/scripts/createRecipeContainers.js"></script>
 </body>
 </html>
