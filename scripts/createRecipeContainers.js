@@ -1,4 +1,4 @@
-const recipeTags = ["Vegetarian", "Vegan", "Sides"] //TODO
+const recipeTags = ["Vegetarian", "Vegan", "Sides", "Snack", "Breakfast"] //TODO
 let recipeContainer = null;
 
 export function appendRecipesContainerTo(parentContainer) {
@@ -13,8 +13,7 @@ function createRecipeContainer() {
     recipeContainer.classList.add("child-container")
 
     addImageToRecipeContainer()
-    addNameToRecipeContainer()
-    addTagsToRecipeContainer()
+    addRecipeContainerFooter()
 
     return recipeContainer
 }
@@ -24,15 +23,27 @@ function addImageToRecipeContainer() {
     recipeContainer.appendChild(imgElement)
 }
 
-function addNameToRecipeContainer() {
-    const divRecipeNameContainer = document.createElement("div")
-    const pRecipeName = document.createElement("p")
-    pRecipeName.innerText = "nome ricetta" //TODO
-    divRecipeNameContainer.appendChild(pRecipeName)
-    recipeContainer.appendChild(divRecipeNameContainer)
+function addRecipeContainerFooter() {
+    const footerDiv = document.createElement("div")
+    footerDiv.classList.add("recipe-container-footer")
+
+    addNameToRecipeContainer(footerDiv)
+    addTagsToRecipeContainer(footerDiv)
+
+    recipeContainer.appendChild(footerDiv)
 }
 
-function addTagsToRecipeContainer() {
+function addNameToRecipeContainer(parentDiv) {
+    const divRecipeNameContainer = document.createElement("div")
+    divRecipeNameContainer.classList.add("recipe-name")
+
+    const pRecipeName = document.createElement("p")
+    pRecipeName.innerText = "nome ricetta lungooooooooooooooooooooooooooooooo" //TODO
+    divRecipeNameContainer.appendChild(pRecipeName)
+    parentDiv.appendChild(divRecipeNameContainer)
+}
+
+function addTagsToRecipeContainer(parentDiv) {
     const divTagsContainer = document.createElement("div")
     divTagsContainer.classList.add("tags")
 
@@ -47,5 +58,5 @@ function addTagsToRecipeContainer() {
         ulElement.appendChild(liElement)
     })
     divTagsContainer.appendChild(ulElement)
-    recipeContainer.appendChild(divTagsContainer)
+    parentDiv.appendChild(divTagsContainer)
 }

@@ -9,7 +9,6 @@
 body {
     background-color: #f7f4dd;
     margin: 0;
-    font-size: 17px;
 }
 
 body::-webkit-scrollbar {
@@ -27,7 +26,7 @@ header {
 
 header img {
     height: 75%;
-    margin-left: 40px;
+    margin: 0 40px;
 }
 
 header .site-name {
@@ -37,22 +36,37 @@ header .site-name {
     justify-content: center;
     align-items: center;
     color: #014700;
-    font-size: 50px;
-    font-weight: 500;
+    font-size: 3em;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 10px;
+    text-align: center;
+}
+
+@media (min-width: 1200px) {
+    header .site-name {
+        font-size: 3.5em;
+        font-weight: 500;
+    }
 }
 
 /* filters section */
 .filters {
     flex: 1;
     flex-wrap: wrap;
-    padding: 0 150px;
+    padding: 0 50px;
+}
+
+@media (min-width: 1200px) {
+    .filters {
+        padding: 0 150px;
+    }
 }
 
 .filters ul {
     list-style: none;
     text-align: center;
+    padding-inline-start: 0;
 }
 
 .filters ul li {
@@ -64,7 +78,7 @@ header .site-name {
 .filters ul li button {
     text-decoration: none;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 25px;
     color: #014700;
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -75,20 +89,26 @@ header .site-name {
     padding-left: 12px;
 }
 
-.filters ul li button::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background: #014700;
-    left: 0;
-    bottom: 0;
-    transform: scale(0, 1);
-    transition: transform 0.3s ease;
-}
+@media (min-width: 1200px) {
+    .filters ul li button {
+        font-size: 20px;
+    }
 
-.filters ul li button:hover::after {
-    transform: scale(1, 1);
+    .filters ul li button::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #014700;
+        left: 0;
+        bottom: 0;
+        transform: scale(0, 1);
+        transition: transform 0.3s ease;
+    }
+
+    .filters ul li button:hover::after {
+        transform: scale(1, 1);
+    }
 }
 
 /* recipes section */
@@ -100,8 +120,8 @@ header .site-name {
     flex-direction: column;
 }
 
-.parent-container {
-    width: 90%;
+.recipes .parent-container {
+    width: 100%;
     background: transparent;
     display: flex;
     flex-wrap: wrap;
@@ -111,7 +131,7 @@ header .site-name {
     flex-direction: row;
 }
 
-.child-container {
+.recipes .parent-container .child-container {
     display: flex;
     background: white;
     box-shadow: 8px 8px rgba(1, 71, 0, 0.5);
@@ -120,32 +140,52 @@ header .site-name {
     margin: 0;
     flex-direction: column;
     align-self: stretch;
-    width: 400px;
-    height: 400px;
+    width: 375px;
+    height: 450px;
+    position: relative;
 }
 
-@media (min-width: 980px) {
-    .child-container {
-        max-width: 500px;
-    }
-}
-
-.recipes .child-container img {
-    height: 300px;
+.recipes .parent-container .child-container img {
+    height: 250px;
     object-fit: cover;
     border-radius: 5px;
     margin: 5px;
 }
 
-.recipes .child-container p {
-    font-size: 20px;
+.recipes .parent-container .child-container .recipe-container-footer {
+    position: absolute;
+    bottom: 20px;
+}
+
+.recipes .parent-container .child-container .recipe-name p {
+    font-size: 27px;
     font-weight: 500;
     margin: 10px 0 0 0;
     padding: 5px;
-    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
-.recipes .child-container .tags ul {
+@media (min-width: 1200px) {
+    .recipes .parent-container {
+        width: 90%;
+    }
+
+    .recipes .parent-container .child-container {
+        width: 400px;
+        height: 500px;
+        position: relative;
+    }
+
+    .recipes .parent-container .child-container img {
+        height: 350px;
+    }
+
+    .recipes .parent-container .child-container .recipe-name p {
+        font-size: 25px;
+    }
+}
+
+.recipes .parent-container .child-container .tags ul {
     list-style: none;
     text-align: end;
     display: inline-flex;
@@ -155,15 +195,21 @@ header .site-name {
     flex-wrap: wrap;
 }
 
-.recipes .child-container .tags ul li {
+.recipes .parent-container .child-container .tags ul li {
     margin-top: 5px;
     margin-left: 5px;
     background-color: rgba(1, 71, 0, 0.1);
     border-radius: 10px;
 }
 
-.recipes .child-container .tags ul li p {
+.recipes .parent-container .child-container .tags ul li p {
     margin: 0;
     padding: 5px;
-    font-size: 16px;
+    font-size: 20px;
+}
+
+@media (min-width: 1200px) {
+    .recipes .parent-container .child-container .tags ul li p {
+        font-size: 18px;
+    }
 }
