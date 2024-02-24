@@ -1,53 +1,56 @@
-const recipeTags = ["Vegetarian", "Vegan", "Sides", "Snack", "Breakfast"] //TODO
+import recipes from '/resources/recipes.json' assert {type: 'json'}
+
 let recipeContainer = null;
 
 export function appendRecipesContainerTo(parentContainer) {
-    //TODO this will loop on a list of recipes retrieved from a database
-    for (let i = 0; i < 6; i++) {
-        parentContainer.appendChild(createRecipeContainer())
-    }
+    recipes.forEach(recipe => {
+        parentContainer.appendChild(createRecipeContainer(recipe))
+    })
 }
 
-function createRecipeContainer() {
+function createRecipeContainer(recipe) {
     recipeContainer = document.createElement("div")
     recipeContainer.classList.add("child-container")
 
-    addImageToRecipeContainer()
-    addRecipeContainerFooter()
+    addImageToRecipeContainer(recipe.imgName)
+    addRecipeContainerFooter(recipe)
 
     return recipeContainer
 }
 
-function addImageToRecipeContainer() {
+function addImageToRecipeContainer(imgName) {
     const imgElement = document.createElement("img")
+    imgElement.src = "/resources/recipe_pictures/" + imgName
+
     recipeContainer.appendChild(imgElement)
 }
 
-function addRecipeContainerFooter() {
+function addRecipeContainerFooter(recipe) {
     const footerDiv = document.createElement("div")
     footerDiv.classList.add("recipe-container-footer")
 
-    addNameToRecipeContainer(footerDiv)
-    addTagsToRecipeContainer(footerDiv)
+    addNameToRecipeContainer(footerDiv, recipe.name)
+    addTagsToRecipeContainer(footerDiv, recipe.tags)
 
     recipeContainer.appendChild(footerDiv)
 }
 
-function addNameToRecipeContainer(parentDiv) {
+function addNameToRecipeContainer(parentDiv, recipeName) {
     const divRecipeNameContainer = document.createElement("div")
     divRecipeNameContainer.classList.add("recipe-name")
 
     const pRecipeName = document.createElement("p")
-    pRecipeName.innerText = "nome ricetta lungooooooooooooooooooooooooooooooo" //TODO
+    pRecipeName.innerText = recipeName
     divRecipeNameContainer.appendChild(pRecipeName)
     parentDiv.appendChild(divRecipeNameContainer)
 }
 
-function addTagsToRecipeContainer(parentDiv) {
+function addTagsToRecipeContainer(parentDiv, recipeTags) {
     const divTagsContainer = document.createElement("div")
     divTagsContainer.classList.add("tags")
 
     const ulElement = document.createElement("ul")
+
     recipeTags.forEach(tag => {
         const liElement = document.createElement("li")
         const pElement = document.createElement("p")
