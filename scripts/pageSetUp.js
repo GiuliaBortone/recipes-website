@@ -1,10 +1,19 @@
 import {filterFromTag} from "./filterTags.js";
 import {appendRecipesContainerTo} from "./createRecipeContainers.js";
 
-const tags = ["All recipes", "Vegetarian", "Vegan",
-    "Meat & Fish", "Bread",
-    "Everything sweet", "Breakfast",
-    "Snacks", "Sides", "Sauces", "Drinks"]
+export const tagsObject = {
+    allRecipes: "All recipes",
+    vegetarian: "Vegetarian",
+    vegan: "Vegan",
+    meatAndFish: "Meat & Fish",
+    bread: "Bread",
+    everythingSweet: "Everything sweet",
+    breakfast: "Breakfast",
+    snacks :"Snacks",
+    sides :"Sides",
+    sauces :"Sauces",
+    drinks :"Drinks"
+}
 
 window.onload = () => {
     createFilters()
@@ -16,16 +25,16 @@ function createFilters() {
     const ulElement = document.createElement("ul")
     filtersSection.appendChild(ulElement)
 
-    tags.forEach(tag => {
-        const liElement = document.createElement("li")
-        const button = document.createElement("button")
+    for (const [_, value] of Object.entries(tagsObject)) {
+            const liElement = document.createElement("li")
+            const button = document.createElement("button")
 
-        button.addEventListener('click', () => filterFromTag(tag))
-        button.textContent = tag
+            button.addEventListener('click', () => filterFromTag(value))
+            button.textContent = value
 
-        liElement.appendChild(button)
-        ulElement.appendChild(liElement)
-    })
+            liElement.appendChild(button)
+            ulElement.appendChild(liElement)
+    }
 }
 
 function showRecipes() {

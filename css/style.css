@@ -72,7 +72,6 @@ header .site-name {
 
 .filters ul li {
     display: inline-block;
-    text-align: center;
     padding: 20px;
 }
 
@@ -82,19 +81,20 @@ header .site-name {
     font-size: 25px;
     color: #014700;
     text-transform: uppercase;
-    letter-spacing: 5px;
-    background: none;
+    letter-spacing: 1px;
+    background: white;
     border: 1px solid #014700;
     border-radius: 10px;
     box-shadow: 5px 5px rgba(1, 71, 0, 0.5);
     cursor: pointer;
     position: relative;
+    text-align: center;
+    padding: 10px;
 }
 
 @media (min-width: 1200px) {
     .filters ul li button {
         font-size: 20px;
-        padding-left: 12px;
     }
 
     .filters ul li button:hover, .filters ul li button:focus {

@@ -1,19 +1,15 @@
 import {getAllRecipes, showRecipes} from "./createRecipeContainers.js";
+import {tagsObject} from "./pageSetUp.js";
 
 export function filterFromTag(tag) {
-    console.log("hello " + tag)
-    keepRecipesWithFilter(tag)
-}
-
-function keepRecipesWithFilter(tagName) {
     const parentRecipeContainer = document.querySelector('.parent-container')
     parentRecipeContainer.innerHTML = ""
 
     const allRecipes = getAllRecipes()
-    if (tagName === "All recipes") {
+    if (tag === tagsObject.allRecipes) {
         showRecipes(parentRecipeContainer, allRecipes)
     }
 
-    const filteredRecipes = allRecipes.filter(recipe => recipe.tags.includes(tagName))
+    const filteredRecipes = allRecipes.filter(recipe => recipe.tags.includes(tag))
     showRecipes(parentRecipeContainer, filteredRecipes)
 }
