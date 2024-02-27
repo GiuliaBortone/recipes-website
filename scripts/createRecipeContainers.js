@@ -1,11 +1,54 @@
-import recipes from '/resources/recipes.json' assert {type: 'json'}
-
 let recipeContainer = null;
+const recipesJsonDirectory = '/resources/recipe_jsons/'
+
+let allRecipes = []
+
+export function getAllRecipes() {
+    return allRecipes
+}
 
 export function appendRecipesContainerTo(parentContainer) {
+    const recipesUnordered = []
+
+    fetch(recipesJsonDirectory)
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser()
+            const doc = parser.parseFromString(html, 'text/html')
+            const links = Array.from(doc.querySelectorAll('a'))
+            const jsonFiles = links.filter(link => link.href.endsWith('.json'))
+
+            const fetchPromises = jsonFiles.map(file => {
+                const fileName = file.textContent;
+                const filePath = recipesJsonDirectory + fileName;
+
+                return fetch(filePath)
+                    .then(response => response.json())
+                    .then(data => {
+                        recipesUnordered.push(data);
+                    })
+                    .catch(error => console.error(`Error fetching or parsing ${fileName}:`, error));
+            });
+
+            return Promise.all(fetchPromises);
+        })
+        .then(() => {
+            allRecipes = recipesUnordered.sort(sortRecipesByDateAdded)
+            showRecipes(parentContainer, allRecipes)
+        })
+        .catch(error => console.error(`Error fetching directory:`, error))
+}
+
+export function showRecipes(parentContainer, recipes) {
     recipes.forEach(recipe => {
         parentContainer.appendChild(createRecipeContainer(recipe))
     })
+}
+
+function sortRecipesByDateAdded(recipeA, recipeB) {
+    const dateAddedA = new Date(recipeA["day-added"].year, recipeA["day-added"].month - 1, recipeA["day-added"].day);
+    const dateAddedB = new Date(recipeB["day-added"].year, recipeB["day-added"].month - 1, recipeB["day-added"].day);
+    return dateAddedB - dateAddedA;
 }
 
 function createRecipeContainer(recipe) {
