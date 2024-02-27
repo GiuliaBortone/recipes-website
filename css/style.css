@@ -17,37 +17,58 @@ body::-webkit-scrollbar {
 
 /* header */
 header {
-    height: 100px;
     width: 100%;
     display: flex;
-    align-items: center;
-    margin: 30px 0;
+    justify-content: space-between;
 }
 
-header img {
-    height: 75%;
-    margin: 0 40px;
+header .logo-name {
+    display: flex;
 }
 
-header .site-name {
-    height: 100%;
-    width: 100%;
+header .logo-name img {
+    height: 70px;
+    margin: 20px 40px;
+}
+
+header .logo-name div {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #014700;
-    font-size: 3em;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    text-align: center;
 }
 
-@media (min-width: 1200px) {
-    header .site-name {
-        font-size: 3.5em;
-        font-weight: 500;
-    }
+header .logo-name div p {
+    font-weight: 500;
+    font-size: 25px;
+    color: #014700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header nav ul {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+header nav ul li {
+    display: inline;
+    padding: 30px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 25px;
+    color: #014700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* filters section */
@@ -72,7 +93,7 @@ header .site-name {
 
 .filters ul li {
     display: inline-block;
-    padding: 20px;
+    padding: 10px;
 }
 
 .filters ul li button {
@@ -81,7 +102,7 @@ header .site-name {
     font-size: 25px;
     color: #014700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     background: white;
     border: 1px solid #014700;
     border-radius: 10px;
@@ -93,7 +114,8 @@ header .site-name {
 
 @media (min-width: 1200px) {
     .filters ul li button {
-        font-size: 20px;
+        font-size: 15px;
+        font-weight: 600;
 
         &:hover {
             box-shadow: 0 15px 25px -10px #014700;
