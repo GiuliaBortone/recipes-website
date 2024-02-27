@@ -94,12 +94,18 @@ header .site-name {
 @media (min-width: 1200px) {
     .filters ul li button {
         font-size: 20px;
-    }
 
-    .filters ul li button:hover, .filters ul li button:focus {
-        box-shadow: 0 0.5em 0.5em -0.4em;
-        transform: translateY(-0.25em);
-        transition: transform 0.3s ease;
+        &:hover {
+            box-shadow: 0 15px 25px -10px #014700;
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+
+        &:active {
+            box-shadow: 0 2px 8px #014700;
+            transform: scale(.98);
+            transition: transform 0.3s ease;
+        }
     }
 }
 
